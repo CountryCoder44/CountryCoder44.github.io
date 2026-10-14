@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrakCode: CS 499 Capstone | Ryan Cartwright</title>
+<meta name="description" content="TrakCode, the CS 499 capstone artifact: code review, original artifact, and three enhancements.">
+<meta property="og:title" content="TrakCode: CS 499 Capstone | Ryan Cartwright">
+<meta property="og:description" content="TrakCode, the CS 499 capstone artifact: code review, original artifact, and three enhancements.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <nav class="container nav" aria-label="Main">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">RC</span><span class="brand-name">Ryan Cartwright</span></a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">Menu</button>
+    <ul class="nav-links" id="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="projects.html" aria-current="page">Projects</a></li>
+    </ul>
+  </nav>
+</header>
+<main id="main">
+
+<section class="section">
+  <div class="container">
+    <p class="crumbs"><a href="projects.html">Projects</a> / TrakCode capstone</p>
+    <span class="eyebrow">CS 499 capstone artifact</span>
+    <h1>TrakCode</h1>
+    <p class="lede">An AI-native coding education platform I designed and built. Learners work through ordered lessons, solve practice assignments graded by running their code, and can ask an AI tutor named Trak for help.</p>
+    <p style="max-width:68ch;color:var(--text-dim)">It has a React and TypeScript front end, a Node.js, Express, and TypeScript API backed by MongoDB, and a separate execution service that compiles and runs learner code in Python, Java, C++, and TypeScript. I used this one real system for all three enhancement categories, so every change had to hold up in software people actually use.</p>
+    <div class="btn-row" style="margin-top:24px">
+      <a class="btn" href="https://github.com/CountryCoder44/trakcode-cs499">Source on GitHub</a>
+      <a class="btn btn-outline" href="https://github.com/CountryCoder44/trakcode-cs499/tree/main/capstone/original">Original artifact</a>
+      <a href="https://github.com/CountryCoder44/trakcode-cs499/actions/workflows/ci.yml"><img src="https://github.com/CountryCoder44/trakcode-cs499/actions/workflows/ci.yml/badge.svg" alt="CI status: typecheck and tests" height="20" style="margin-top:12px"></a>
+    </div>
+  </div>
+</section>
+<section class="section section-alt" id="code-review">
+  <div class="container">
+    <div class="section-head">
+      <h2>Code review</h2>
+      <p>My code review of TrakCode before any enhancements: a walkthrough of the existing functionality, an analysis of its weaknesses, and the enhancements I planned for each category.</p>
+    </div>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/w6H_jH92UV8" title="TrakCode code review video" loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="note" style="margin-top:12px">Can&rsquo;t see the video? <a href="https://youtu.be/w6H_jH92UV8">Watch it on YouTube</a>.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Original artifact</h2>
+      <p>TrakCode exactly as it stood before the enhancements, as reviewed in the video above. Each enhancement page links the files it changed, before and after.</p>
+    </div>
+    <a class="btn btn-outline" href="https://github.com/CountryCoder44/trakcode-cs499/tree/main/capstone/original">Browse the original code on GitHub</a>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head">
+      <h2>Enhancements</h2>
+      <p>One enhancement per category. Each page has the narrative, the key before-and-after files, and the code as submitted.</p>
+    </div>
+    <div class="grid-3">
+<a class="card enh-card" href="enhancement-1.html">
+  <span class="num">Enhancement One &middot; Milestone Two</span>
+  <h3>Software Design and Engineering</h3>
+  <p>A testable tutor service, typed errors, the first test suite and CI, and a guardrail that fails closed.</p>
+  <span class="more">Read the enhancement &rarr;</span>
+</a>
+<a class="card enh-card" href="enhancement-2.html">
+  <span class="num">Enhancement Two &middot; Milestone Three</span>
+  <h3>Algorithms and Data Structures</h3>
+  <p>Fair, indexed problem selection, a cached lesson walk, and a language-aware hint rule table.</p>
+  <span class="more">Read the enhancement &rarr;</span>
+</a>
+<a class="card enh-card" href="enhancement-3.html">
+  <span class="num">Enhancement Three &middot; Milestone Four</span>
+  <h3>Databases</h3>
+  <p>One data access layer, a referential integrity check, and an &quot;already seen&quot; check moved into the database.</p>
+  <span class="more">Read the enhancement &rarr;</span>
+</a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>Course outcomes</h2>
+      <p>Where the five CS 499 course outcomes are demonstrated across this ePortfolio.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Outcome</th><th scope="col">Where it is demonstrated</th></tr></thead>
+        <tbody>
+<tr><th scope="row">1. Collaborative environments</th><td style="font-family:inherit">Code review for a peer and manager audience; Enhancement One&#x27;s CI gate on every pull request and OpenAPI contract; the repository&#x27;s contributing guide, pull request template, and issue templates; team experience in the self-assessment.</td></tr>
+<tr><th scope="row">2. Professional communication</th><td style="font-family:inherit">The code review video, the three narratives, the API reference and architecture README from Enhancement One, and this ePortfolio.</td></tr>
+<tr><th scope="row">3. Design and evaluate solutions, managing trade-offs</th><td style="font-family:inherit">Enhancement Two&#x27;s complexity analysis of selection, caching, and hint rules; Enhancement Three&#x27;s in-database anti-join and integrity check; dependency injection trade-offs in Enhancement One.</td></tr>
+<tr><th scope="row">4. Well-founded techniques, skills, and tools</th><td style="font-family:inherit">Enhancement One&#x27;s test suite and CI; benchmarks and query-planner verification in Enhancements Two and Three; a repository layer and atomic updates.</td></tr>
+<tr><th scope="row">5. Security mindset</th><td style="font-family:inherit">Enhancement One&#x27;s fail-closed AI guardrail; Enhancement Three&#x27;s race-condition fix and reviewed deletion; sandbox isolation and secret scrubbing described in the self-assessment.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head"><h2>Downloads</h2><p>The written work as Word documents.</p></div>
+    <ul class="prose">
+<li><a href="downloads/professional-self-assessment.docx" download>Professional Self-Assessment (.docx)</a></li>
+<li><a href="downloads/enhancement-1-software-design.docx" download>Enhancement One: Software Design and Engineering narrative (.docx)</a></li>
+<li><a href="downloads/enhancement-2-algorithms.docx" download>Enhancement Two: Algorithms and Data Structures narrative (.docx)</a></li>
+<li><a href="downloads/enhancement-3-databases.docx" download>Enhancement Three: Databases narrative (.docx)</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <span>&copy; 2026 Ryan Cartwright. CS 499 Computer Science Capstone, Southern New Hampshire University.</span>
+    <span><a href="https://github.com/CountryCoder44">GitHub</a> &middot; <a href="https://www.linkedin.com/in/rycartwrightfromjersey">LinkedIn</a> &middot; <a href="https://github.com/CountryCoder44/trakcode-cs499">Capstone source</a></span>
+  </div>
+</footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
