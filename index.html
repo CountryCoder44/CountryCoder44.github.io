@@ -4,9 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ryan Cartwright | CS 499 ePortfolio</title>
-<meta name="description" content="The CS 499 Computer Science Capstone ePortfolio of Ryan Cartwright, full-stack software engineer: professional self-assessment, code review, and three enhancements to TrakCode.">
+<meta name="description" content="The CS 499 Computer Science Capstone ePortfolio of Ryan Cartwright, full-stack software engineer: professional self-assessment and three enhancements to TrakCode.">
 <meta property="og:title" content="Ryan Cartwright | CS 499 ePortfolio">
-<meta property="og:description" content="The CS 499 Computer Science Capstone ePortfolio of Ryan Cartwright, full-stack software engineer: professional self-assessment, code review, and three enhancements to TrakCode.">
+<meta property="og:description" content="The CS 499 Computer Science Capstone ePortfolio of Ryan Cartwright, full-stack software engineer: professional self-assessment and three enhancements to TrakCode.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://countrycoder44.github.io/">
+<meta property="og:image" content="https://countrycoder44.github.io/assets/img/trakcode.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://countrycoder44.github.io/">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
@@ -40,7 +45,6 @@
       <h2 id="glance-title">This ePortfolio at a glance</h2>
       <ol>
 <li><a href="#self-assessment"><b>Professional self-assessment</b><span>Start here</span></a></li>
-<li><a href="trakcode.html#code-review"><b>Code review video</b><span>30 min</span></a></li>
 <li><a href="enhancement-1.html"><b>Enhancement One</b><span>Software Design and Engineering</span></a></li>
 <li><a href="enhancement-2.html"><b>Enhancement Two</b><span>Algorithms and Data Structures</span></a></li>
 <li><a href="enhancement-3.html"><b>Enhancement Three</b><span>Databases</span></a></li>
@@ -75,7 +79,7 @@
 <p>I approach security as a habit of asking how something will fail, and what happens to users and their data when it does. In Full Stack Development I added authentication to the travel application&#x27;s administrator API with JSON Web Tokens, so only authorized users could change its data. In TrakCode, outside the three enhancements in this portfolio, the service that runs learners&#x27; code is isolated: it has no internet access, a read-only file system, and no special system privileges, because it exists specifically to run code nobody has reviewed. When I added social sign-in, I wrote a guard against account takeover, so that someone who registered a victim&#x27;s email address first could not keep a way into that account. I treat privacy the same way: TrakCode encrypts the access tokens it stores for connected GitHub and LinkedIn accounts with AES-256-GCM, and deleting an account removes the learner&#x27;s code, progress, and conversations with Trak instead of just hiding them. Preparing this portfolio for public release was its own security exercise: I removed every credential, API key, and production server identifier from the code before publishing it.</p>
 <h3>How the Artifacts Fit Together</h3>
 <p>The artifacts that follow all come from TrakCode, a full-stack coding education platform I designed and built, and continue to operate, outside of my coursework. Using one real, working system for all three categories, instead of three disconnected class projects, meant every enhancement had to hold up in software real users touch, not just against a rubric.</p>
-<p>Each enhancement started from a specific finding in my code review and ended with evidence. In software design and engineering, I restructured the backend so it could be tested, and fixed an AI safety check that failed open instead of closed. In algorithms and data structures, I made problem selection fair and efficient, cached repeated work, and rebuilt a hint system to work correctly across languages, with complexity analysis and measured timings to support each change. In databases, I consolidated duplicated data access, built an integrity check that found 36 real orphaned records in my development database, and moved an expensive check into the database itself, confirmed with the query planner. Together they show the discipline I want an employer to see first: I find out whether my code actually works, and I am honest with myself when it does not. The code review, the original and enhanced code, and a narrative for each enhancement follow.</p>
+<p>Each enhancement started from a specific finding in my code review and ended with evidence. In software design and engineering, I restructured the backend so it could be tested, and fixed an AI safety check that failed open instead of closed. In algorithms and data structures, I made problem selection fair and efficient, cached repeated work, and rebuilt a hint system to work correctly across languages, with complexity analysis and measured timings to support each change. In databases, I consolidated duplicated data access, built an integrity check that found 36 real orphaned records in my development database, and moved an expensive check into the database itself, confirmed with the query planner. Together they show the discipline I want an employer to see first: I find out whether my code actually works, and I am honest with myself when it does not. The original and enhanced code, and a narrative for each enhancement, follow.</p>
     </article>
     <div class="btn-row" style="margin-top:32px">
       <a class="btn" href="trakcode.html">Continue to the capstone artifacts</a>

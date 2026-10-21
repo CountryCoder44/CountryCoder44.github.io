@@ -4,7 +4,7 @@ My CS 499 Computer Science Capstone ePortfolio at Southern New Hampshire Univers
 
 - **Home:** my professional self-assessment, followed by my skills.
 - **About:** my background and path into computer science.
-- **Projects:** TrakCode, the capstone artifact, plus other projects. The TrakCode page links the code review video, the original artifact, and a page for each of the three enhancements with its narrative and before-and-after code.
+- **Projects:** TrakCode, the capstone artifact, plus other projects. The TrakCode page links the original artifact and a page for each of the three enhancements with its narrative and before-and-after code.
 
 The capstone source code is in [CountryCoder44/trakcode-cs499](https://github.com/CountryCoder44/trakcode-cs499).
 

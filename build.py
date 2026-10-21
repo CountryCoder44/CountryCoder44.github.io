@@ -15,7 +15,7 @@ ROOT = Path(__file__).parent
 REPO = 'https://github.com/CountryCoder44/trakcode-cs499'
 TREE = REPO + '/tree/main/'
 BLOB = REPO + '/blob/main/'
-VIDEO_ID = 'w6H_jH92UV8'
+SITE = 'https://countrycoder44.github.io/'
 GITHUB = 'https://github.com/CountryCoder44'
 LINKEDIN = 'https://www.linkedin.com/in/rycartwrightfromjersey'
 
@@ -115,6 +115,11 @@ def page(filename, title, description, body, section):
 <meta name="description" content="{html.escape(description)}">
 <meta property="og:title" content="{html.escape(full_title)}">
 <meta property="og:description" content="{html.escape(description)}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{SITE}{filename.replace("index.html", "")}">
+<meta property="og:image" content="{SITE}assets/img/trakcode.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{SITE}{filename.replace("index.html", "")}">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
@@ -303,7 +308,6 @@ SKILLS = [('TypeScript', 'typescript'), ('JavaScript', 'javascript'), ('React', 
 def home():
     glance = '\n'.join([
         '<li><a href="#self-assessment"><b>Professional self-assessment</b><span>Start here</span></a></li>',
-        '<li><a href="trakcode.html#code-review"><b>Code review video</b><span>30 min</span></a></li>',
     ] + [f'<li><a href="{e["slug"]}.html"><b>Enhancement {e["word"]}</b><span>{e["title"]}</span></a></li>' for e in ENHANCEMENTS])
     skills = '\n'.join(f'<div class="skill"><img src="assets/img/icons/{f}.png" alt="" width="44" height="44">{n}</div>' for n, f in SKILLS)
     body = f'''
@@ -355,7 +359,7 @@ def home():
 </section>'''
     page('index.html', 'Ryan Cartwright | CS 499 ePortfolio',
          'The CS 499 Computer Science Capstone ePortfolio of Ryan Cartwright, full-stack software engineer: '
-         'professional self-assessment, code review, and three enhancements to TrakCode.', body, 'Home')
+         'professional self-assessment and three enhancements to TrakCode.', body, 'Home')
 
 
 TIMELINE = [
@@ -365,7 +369,7 @@ TIMELINE = [
     ('February 2024 to present', 'Founder and Principal Software Engineer, Fireback Software LLC',
      'Full-stack and AI-powered applications for clients, built with distributed developers and QA teams.'),
     ('September 2024', 'Back to school for computer science', 'Studied computer science at Middlesex County College.'),
-    ('May 2025', 'B.S. Computer Science, Southern New Hampshire University', 'Degree conferral expected October 2026.'),
+    ('2025 to 2026', 'B.S. Computer Science, Southern New Hampshire University', 'All coursework completed. Degree conferral expected October 2026.'),
     ('September 2025 to May 2026', 'Full-Stack Software Engineering Bootcamp, Metana', 'Completed alongside my degree.'),
     ('December 2026', 'M.S. Artificial Intelligence, Southern New Hampshire University', 'Beginning my graduate studies.'),
 ]
@@ -390,7 +394,7 @@ def about():
       <p class="lede">Full-stack software engineer, AI product engineer, and founder of Fireback Software LLC.</p>
       <p>I like owning a product from the first idea to the people using it. I founded Fireback Software LLC in February 2024, where I build full-stack web applications, AI-powered features, and cloud infrastructure for clients, usually alongside distributed developers and QA teams.</p>
       <p>I didn&rsquo;t start out in a computer science classroom. I taught myself embedded programming and web development at an agricultural company, where I automated an aeroponic growing operation and built the web app that monitored it. That hands-on start is why I care so much about software that keeps working when nobody is watching.</p>
-      <p>I&rsquo;m finishing my Bachelor of Science in Computer Science at Southern New Hampshire University, and I begin a Master of Science in Artificial Intelligence in December 2026. Outside of client work I&rsquo;m building TrakCode, an AI-native coding education platform, and ChromiTap, a digital art and color management application.</p>
+      <p>I&rsquo;ve completed my Bachelor of Science in Computer Science at Southern New Hampshire University (conferral expected October 2026), and I begin a Master of Science in Artificial Intelligence in December 2026. Outside of client work I&rsquo;m building TrakCode, an AI-native coding education platform, and ChromiTap, a digital art and color management application.</p>
       <div class="social" style="margin-top:24px">
         <a href="{GITHUB}"><img src="assets/img/icons/github.png" alt="" width="20" height="20">GitHub</a>
         <a href="{LINKEDIN}"><img src="assets/img/icons/linkedin.png" alt="" width="20" height="20">LinkedIn</a>
@@ -417,12 +421,18 @@ def about():
     page('about.html', 'About', 'About Ryan Cartwright: background, path into computer science, and how I work.', body, 'About')
 
 
-def project_card(img, alt, title, tags, text, links, note=None):
+def project_card(img, alt, title, tags, text, links, note=None, icons=None):
+    """`icons` (skill icon names) stands in for `img` on projects with no screenshot."""
     tag_html = ''.join(f'<li>{html.escape(t)}</li>' for t in tags)
     link_html = ''.join(links)
     note_html = f'<p class="note">{html.escape(note)}</p>' if note else ''
+    if icons:
+        media = '<div class="project-media project-icons">' + ''.join(
+            f'<img src="assets/img/icons/{i}.png" alt="" height="56">' for i in icons) + '</div>'
+    else:
+        media = f'<div class="project-media"><img src="assets/img/{img}" alt="{html.escape(alt)}" loading="lazy"></div>'
     return f'''<article class="card project">
-  <div class="project-media"><img src="assets/img/{img}" alt="{html.escape(alt)}" loading="lazy"></div>
+  {media}
   <div class="project-body">
     <h3>{html.escape(title)}</h3>
     <ul class="tags">{tag_html}</ul>
@@ -454,6 +464,28 @@ def projects():
                      'work hours to fill in Interstate Fuel Tax Agreement (IFTA) reports automatically. It improved reporting accuracy by 27%, '
                      'and together with related workflow automation it removed more than 30 hours of manual work per week.',
                      [], 'Client work. Source is not public.'),
+        project_card(None, None, 'API Watchtower',
+                     ['TypeScript', 'React', 'Express', 'PostgreSQL', 'Docker'],
+                     'A self-hosted dashboard that monitors REST APIs for availability, response time, and contract drift. '
+                     'A built-in scheduler checks each endpoint on its own interval, a health-state machine opens and resolves '
+                     'incidents automatically, and deterministic JSON-shape fingerprinting shows exactly which fields were added, '
+                     'removed, or changed type. Typed end to end, tested, and runs with one Docker Compose command.',
+                     [f'<a class="btn btn-outline" href="{GITHUB}/api-watchtower">Source on GitHub</a>'],
+                     icons=['typescript', 'react', 'postgresql']),
+        project_card(None, None, 'TMDB Explorer',
+                     ['TypeScript', 'React', 'Tailwind CSS', 'Vitest'],
+                     'A movie discovery app built on The Movie Database API as a take-home assignment. Combinable server-side '
+                     'filters for genre, release year, and rating, client-side sorting, an animated grid and list layout, and '
+                     'detail views that load cast and runtime on demand, with motion that respects reduced-motion settings.',
+                     [f'<a class="btn btn-outline" href="{GITHUB}/tmdb-explorer">Source on GitHub</a>'],
+                     icons=['typescript', 'react']),
+        project_card(None, None, 'Travlr Getaways',
+                     ['MongoDB', 'Express', 'Angular', 'Node.js', 'Coursework'],
+                     'A MEAN-stack travel booking application from SNHU CS-465, Full Stack Development: a customer-facing Express '
+                     'site, a REST API backed by MongoDB, and an Angular admin app with authenticated login for adding and editing trips. '
+                     'Built incrementally, with each module preserved on its own branch.',
+                     [f'<a class="btn btn-outline" href="{GITHUB}/cs465-fullstack">Source on GitHub</a>'],
+                     icons=['mongodb', 'nodejs', 'javascript']),
     ])
     body = f'''
 <section class="section">
@@ -493,9 +525,9 @@ def projects():
 
 OUTCOMES = [
     ('1. Collaborative environments',
-     'Code review for a peer and manager audience; Enhancement One\'s CI gate on every pull request and OpenAPI contract; the repository\'s contributing guide, pull request template, and issue templates; team experience in the self-assessment.'),
+     'Enhancement One\'s CI gate on every pull request and OpenAPI contract; the repository\'s contributing guide, pull request template, and issue templates; team experience in the self-assessment.'),
     ('2. Professional communication',
-     'The code review video, the three narratives, the API reference and architecture README from Enhancement One, and this ePortfolio.'),
+     'The three narratives, the API reference and architecture README from Enhancement One, and this ePortfolio.'),
     ('3. Design and evaluate solutions, managing trade-offs',
      'Enhancement Two\'s complexity analysis of selection, caching, and hint rules; Enhancement Three\'s in-database anti-join and integrity check; dependency injection trade-offs in Enhancement One.'),
     ('4. Well-founded techniques, skills, and tools',
@@ -531,29 +563,16 @@ def trakcode():
     </div>
   </div>
 </section>
-<section class="section section-alt" id="code-review">
-  <div class="container">
-    <div class="section-head">
-      <h2>Code review</h2>
-      <p>My code review of TrakCode before any enhancements: a walkthrough of the existing functionality, an analysis of its weaknesses, and the enhancements I planned for each category.</p>
-    </div>
-    <div class="video">
-      <iframe src="https://www.youtube-nocookie.com/embed/{VIDEO_ID}" title="TrakCode code review video" loading="lazy"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    <p class="note" style="margin-top:12px">Can&rsquo;t see the video? <a href="https://youtu.be/{VIDEO_ID}">Watch it on YouTube</a>.</p>
-  </div>
-</section>
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="section-head">
       <h2>Original artifact</h2>
-      <p>TrakCode exactly as it stood before the enhancements, as reviewed in the video above. Each enhancement page links the files it changed, before and after.</p>
+      <p>TrakCode exactly as it stood before the enhancements. Each enhancement page links the files it changed, before and after.</p>
     </div>
     <a class="btn btn-outline" href="{TREE}capstone/original">Browse the original code on GitHub</a>
   </div>
 </section>
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="section-head">
       <h2>Enhancements</h2>
@@ -564,7 +583,7 @@ def trakcode():
     </div>
   </div>
 </section>
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="section-head">
       <h2>Course outcomes</h2>
@@ -580,7 +599,7 @@ def trakcode():
     </div>
   </div>
 </section>
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="section-head"><h2>Downloads</h2><p>The written work as Word documents.</p></div>
     <ul class="prose">
@@ -588,7 +607,7 @@ def trakcode():
     </ul>
   </div>
 </section>'''
-    page('trakcode.html', 'TrakCode: CS 499 Capstone', 'TrakCode, the CS 499 capstone artifact: code review, original artifact, and three enhancements.', body, 'Projects')
+    page('trakcode.html', 'TrakCode: CS 499 Capstone', 'TrakCode, the CS 499 capstone artifact: the original artifact and three enhancements.', body, 'Projects')
 
 
 def not_found():

@@ -51,7 +51,7 @@ Testing the whole path found two real bugs. The original hint code contained a c
 - **Outcome 4, well-founded techniques and tools (met):** 51 new tests, query-planner verification, and benchmarks instead of assumed improvements.
 - **Outcome 5, security and reliability mindset (partially met):** the compile-error bug was a reliability defect rather than a security hole, but finding it came from asking whether a feature runs in every situation, not only whether it works in isolation. That is the same habit a security review depends on.
 - **Outcome 2, communication (partially met):** this narrative and the code comments explain the reasoning behind each change, but the main communication evidence in my portfolio is the API reference and architecture documentation from Enhancement One.
-- **Outcome 1, collaboration (addressed elsewhere):** this was individual algorithm work. Collaboration is demonstrated by the code review, the contributor infrastructure in Enhancement One, and the team experience described in my self-assessment.
+- **Outcome 1, collaboration (addressed elsewhere):** this was individual algorithm work. Collaboration is demonstrated by the contributor infrastructure in Enhancement One and the team experience described in my self-assessment.
 
 ## 4. Reflection
 

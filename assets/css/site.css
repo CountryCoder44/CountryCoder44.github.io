@@ -192,6 +192,8 @@ main { display: block; }
 .project { display: flex; flex-direction: column; overflow: hidden; padding: 0; }
 .project-media { aspect-ratio: 16 / 9; background: var(--surface-2); border-bottom: 1px solid var(--border); }
 .project-media img { width: 100%; height: 100%; object-fit: cover; }
+.project-icons { display: flex; align-items: center; justify-content: center; gap: 22px; background: var(--teal-soft); }
+.project-icons img { width: auto; height: 56px; max-width: 150px; object-fit: contain; }
 .project-body { padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
 .project-body p { color: var(--text-dim); }
 .project-body .btn-row { margin-top: auto; padding-top: 6px; }
@@ -220,10 +222,6 @@ main { display: block; }
 .enh-card h3 { margin: 6px 0 10px; }
 .enh-card p { color: var(--text-dim); font-size: 15.5px; }
 .enh-card .more { margin-top: auto; font-weight: 650; color: var(--teal-strong); }
-
-/* ---- Video ---- */
-.video { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #000; box-shadow: var(--shadow); }
-.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
 /* ---- Tables ---- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); }
