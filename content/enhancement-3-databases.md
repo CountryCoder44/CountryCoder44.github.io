@@ -53,7 +53,7 @@ This milestone added **20 tests**: 12 for the repository layer, 5 for the integr
 - **Outcome 4, well-founded techniques and tools (met):** a repository layer, query-planner verification of every index claim, an atomic update to close a race condition, and 20 new tests against a real, temporary MongoDB instance.
 - **Outcome 5, security mindset (partially met):** this enhancement protects data integrity, closing a lost-update race and making deletion an explicit, reviewed step instead of an automatic one. I deliberately left a broader data-layer security pass (query input validation, rate limiting, and session cookie hardening) out of scope for this milestone. The security mindset is shown most directly by the fail-closed guardrail in Enhancement One.
 - **Outcome 2, communication (partially met):** this narrative and the inline documentation explain each decision, but the main communication evidence in my portfolio is the API reference and architecture documentation from Enhancement One.
-- **Outcome 1, collaboration (addressed elsewhere):** this was individual data work. Collaboration is demonstrated by the contributor infrastructure in Enhancement One and the team experience described in my self-assessment.
+- **Outcome 1, collaboration (addressed elsewhere):** this was individual data work. Collaboration is demonstrated by the code review, the contributor infrastructure in Enhancement One, and the team experience described in my self-assessment.
 
 ## 4. Reflection
 

@@ -101,7 +101,7 @@
 <li><strong>Outcome 4, well-founded techniques and tools (met):</strong> 51 new tests, query-planner verification, and benchmarks instead of assumed improvements.</li>
 <li><strong>Outcome 5, security and reliability mindset (partially met):</strong> the compile-error bug was a reliability defect rather than a security hole, but finding it came from asking whether a feature runs in every situation, not only whether it works in isolation. That is the same habit a security review depends on.</li>
 <li><strong>Outcome 2, communication (partially met):</strong> this narrative and the code comments explain the reasoning behind each change, but the main communication evidence in my portfolio is the API reference and architecture documentation from Enhancement One.</li>
-<li><strong>Outcome 1, collaboration (addressed elsewhere):</strong> this was individual algorithm work. Collaboration is demonstrated by the contributor infrastructure in Enhancement One and the team experience described in my self-assessment.</li>
+<li><strong>Outcome 1, collaboration (addressed elsewhere):</strong> this was individual algorithm work. Collaboration is demonstrated by the code review, the contributor infrastructure in Enhancement One, and the team experience described in my self-assessment.</li>
 </ul>
 <h3>4. Reflection</h3>
 <p>The most useful lesson was that testing something in isolation is not the same as confirming it is wired up correctly. My new TypeScript and C++ rules passed their own tests on the first try. Only when I asked whether the function that should call them actually did, in every situation, did I find that compile errors skipped the hint step entirely.</p>

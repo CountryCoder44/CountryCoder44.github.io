@@ -15,6 +15,7 @@ ROOT = Path(__file__).parent
 REPO = 'https://github.com/CountryCoder44/trakcode-cs499'
 TREE = REPO + '/tree/main/'
 BLOB = REPO + '/blob/main/'
+VIDEO_ID = 'w6H_jH92UV8'
 SITE = 'https://countrycoder44.github.io/'
 GITHUB = 'https://github.com/CountryCoder44'
 LINKEDIN = 'https://www.linkedin.com/in/rycartwrightfromjersey'
@@ -308,6 +309,7 @@ SKILLS = [('TypeScript', 'typescript'), ('JavaScript', 'javascript'), ('React', 
 def home():
     glance = '\n'.join([
         '<li><a href="#self-assessment"><b>Professional self-assessment</b><span>Start here</span></a></li>',
+        '<li><a href="trakcode.html#code-review"><b>Code review video</b><span>30 min</span></a></li>',
     ] + [f'<li><a href="{e["slug"]}.html"><b>Enhancement {e["word"]}</b><span>{e["title"]}</span></a></li>' for e in ENHANCEMENTS])
     skills = '\n'.join(f'<div class="skill"><img src="assets/img/icons/{f}.png" alt="" width="44" height="44">{n}</div>' for n, f in SKILLS)
     body = f'''
@@ -359,7 +361,7 @@ def home():
 </section>'''
     page('index.html', 'Ryan Cartwright | CS 499 ePortfolio',
          'The CS 499 Computer Science Capstone ePortfolio of Ryan Cartwright, full-stack software engineer: '
-         'professional self-assessment and three enhancements to TrakCode.', body, 'Home')
+         'professional self-assessment, code review, and three enhancements to TrakCode.', body, 'Home')
 
 
 TIMELINE = [
@@ -525,9 +527,9 @@ def projects():
 
 OUTCOMES = [
     ('1. Collaborative environments',
-     'Enhancement One\'s CI gate on every pull request and OpenAPI contract; the repository\'s contributing guide, pull request template, and issue templates; team experience in the self-assessment.'),
+     'Code review for a peer and manager audience; Enhancement One\'s CI gate on every pull request and OpenAPI contract; the repository\'s contributing guide, pull request template, and issue templates; team experience in the self-assessment.'),
     ('2. Professional communication',
-     'The three narratives, the API reference and architecture README from Enhancement One, and this ePortfolio.'),
+     'The code review video, the three narratives, the API reference and architecture README from Enhancement One, and this ePortfolio.'),
     ('3. Design and evaluate solutions, managing trade-offs',
      'Enhancement Two\'s complexity analysis of selection, caching, and hint rules; Enhancement Three\'s in-database anti-join and integrity check; dependency injection trade-offs in Enhancement One.'),
     ('4. Well-founded techniques, skills, and tools',
@@ -563,16 +565,29 @@ def trakcode():
     </div>
   </div>
 </section>
-<section class="section section-alt">
+<section class="section section-alt" id="code-review">
+  <div class="container">
+    <div class="section-head">
+      <h2>Code review</h2>
+      <p>My code review of TrakCode before any enhancements: a walkthrough of the existing functionality, an analysis of its weaknesses, and the enhancements I planned for each category.</p>
+    </div>
+    <div class="video">
+      <iframe src="https://www.youtube-nocookie.com/embed/{VIDEO_ID}" title="TrakCode code review video" loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <p class="note" style="margin-top:12px">Can&rsquo;t see the video? <a href="https://youtu.be/{VIDEO_ID}">Watch it on YouTube</a>.</p>
+  </div>
+</section>
+<section class="section">
   <div class="container">
     <div class="section-head">
       <h2>Original artifact</h2>
-      <p>TrakCode exactly as it stood before the enhancements. Each enhancement page links the files it changed, before and after.</p>
+      <p>TrakCode exactly as it stood before the enhancements, as reviewed in the video above. Each enhancement page links the files it changed, before and after.</p>
     </div>
     <a class="btn btn-outline" href="{TREE}capstone/original">Browse the original code on GitHub</a>
   </div>
 </section>
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="section-head">
       <h2>Enhancements</h2>
@@ -583,7 +598,7 @@ def trakcode():
     </div>
   </div>
 </section>
-<section class="section section-alt">
+<section class="section">
   <div class="container">
     <div class="section-head">
       <h2>Course outcomes</h2>
@@ -599,7 +614,7 @@ def trakcode():
     </div>
   </div>
 </section>
-<section class="section">
+<section class="section section-alt">
   <div class="container">
     <div class="section-head"><h2>Downloads</h2><p>The written work as Word documents.</p></div>
     <ul class="prose">
@@ -607,7 +622,7 @@ def trakcode():
     </ul>
   </div>
 </section>'''
-    page('trakcode.html', 'TrakCode: CS 499 Capstone', 'TrakCode, the CS 499 capstone artifact: the original artifact and three enhancements.', body, 'Projects')
+    page('trakcode.html', 'TrakCode: CS 499 Capstone', 'TrakCode, the CS 499 capstone artifact: code review, original artifact, and three enhancements.', body, 'Projects')
 
 
 def not_found():
